@@ -1,0 +1,15 @@
+.home .center-class {
+  left: 50%;
+  position: absolute;
+  top: 50% !important;
+  transform: translate(-50%, -50%); }
+  .home .center-class .login {
+    width: 240px;
+    height: auto;
+    text-align: center; }
+    .home .center-class .login input {
+      margin: 10px;
+      height: 20px; }
+    .home .center-class .login button {
+      width: 173px;
+      height: 25px; }

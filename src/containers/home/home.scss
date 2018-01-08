@@ -1,0 +1,23 @@
+
+
+.home{
+  .center-class{
+    left: 50%;
+    position: absolute;
+    top: 50% !important;
+    transform: translate(-50%,-50%);
+    .login{
+      width: 240px;
+      height: auto;
+      text-align: center;
+      input{
+        margin: 10px;
+        height: 20px;
+      }
+      button{
+        width: 173px;
+        height: 25px;
+      }
+    }
+  }
+}

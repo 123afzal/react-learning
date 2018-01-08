@@ -1,0 +1,6 @@
+.controls-t {
+  margin-top: 30px; }
+  .controls-t button {
+    padding: 0.75rem 3rem; }
+  .controls-t button:first-child {
+    margin-right: 10px; }
