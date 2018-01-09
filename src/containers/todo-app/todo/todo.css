@@ -1,0 +1,18 @@
+.todo {
+  padding: 10px;
+  display: flex;
+  cursor: pointer;
+  transition: background 0.3s; }
+  .todo p, .todo input {
+    margin: 0 !important; }
+  .todo > :first-child {
+    margin-right: 10px; }
+  .todo:hover {
+    background-color: #f0f0f0; }
+
+.sub-text {
+  color: #999; }
+
+.todo-completed p, .todo-completed .sub-text {
+  color: #aaa;
+  text-decoration: line-through; }

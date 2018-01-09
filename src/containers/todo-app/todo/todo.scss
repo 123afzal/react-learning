@@ -1,0 +1,32 @@
+.todo{
+  //border: 1px solid #eeeeee;
+  //background-color: lightgrey;
+  padding:10px;
+  display: flex;
+  cursor: pointer;
+  transition: background 0.3s;
+
+
+  p, input{
+    margin: 0 !important;
+  }
+
+  > :first-child{
+    margin-right: 10px;
+  }
+
+  &:hover{
+    background-color: #f0f0f0;
+  }
+}
+
+.sub-text{
+  color: #999;
+}
+
+.todo-completed{
+  p, .sub-text{
+    color: #aaa;
+    text-decoration: line-through;
+  }
+}

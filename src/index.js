@@ -5,8 +5,9 @@ import App from './App';
 import Home from './containers/home/home';
 import Weather from './containers/weather-app/weather';
 import A from './A'
+import TodoApp from './containers/todo-app/todo-app'
 import registerServiceWorker from './registerServiceWorker';
 import  Routes from './route'
 
-ReactDOM.render(<Routes />, document.getElementById('root'));
+ReactDOM.render(<TodoApp />, document.getElementById('root'));
 registerServiceWorker();
