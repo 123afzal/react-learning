@@ -5,9 +5,13 @@ import App from './App';
 import Home from './containers/home/home';
 import Weather from './containers/weather-app/weather';
 import A from './A'
-import TodoApp from './containers/todo-app/todo-app'
+import TodoApp from './containers/todo-app/todo-app';
+import ReduxStart from './containers/redux-starting/redux-start'
 import registerServiceWorker from './registerServiceWorker';
-import  Routes from './route'
+import Routes from './route'
 
-ReactDOM.render(<TodoApp />, document.getElementById('root'));
+ReactDOM.render(
+  <TodoApp/>,document.getElementById('root'));
 registerServiceWorker();
+
+var redux = require('./containers/redux-starting/redux-start');

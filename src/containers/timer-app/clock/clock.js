@@ -13,7 +13,12 @@ class Clock extends Component {
         this._formatSeconds = this._formatSeconds.bind(this);
     }
 
-    _formatSeconds(totalSeconds) {
+  componentWillReceiveProps(nextProps){
+      if(this.props.totalSeconds !== nextProps.totalSeconds)
+        console.log("nestProps",nextProps)
+  }
+
+  _formatSeconds(totalSeconds) {
         let seconds = totalSeconds % 60;
         let minutes = Math.floor(totalSeconds/60);
 
