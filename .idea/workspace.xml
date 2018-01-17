@@ -4,8 +4,6 @@
     <list default="true" id="c1998b27-7e14-42d8-a245-672c22221e35" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/redux-starting/redux-start.js" afterPath="$PROJECT_DIR$/src/containers/redux-starting/redux-start.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/todo-app/todo-app.js" afterPath="$PROJECT_DIR$/src/containers/todo-app/todo-app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/index.js" afterPath="$PROJECT_DIR$/src/index.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -26,12 +24,13 @@
       <file leaf-file-name="redux-start.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/containers/redux-starting/redux-start.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+            <state relative-caret-position="408">
+              <caret line="102" column="38" lean-forward="false" selection-start-line="102" selection-start-column="38" selection-end-line="102" selection-end-column="38" />
               <folding>
-                <element signature="e#190#317#0" expanded="false" />
-                <element signature="e#367#499#0" expanded="false" />
-                <element signature="e#545#830#0" expanded="false" />
+                <element signature="e#238#365#0" expanded="false" />
+                <element signature="e#407#470#0" expanded="false" />
+                <element signature="e#593#725#0" expanded="false" />
+                <element signature="e#773#842#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -406,12 +405,12 @@
       <workItem from="1515330639641" duration="23033000" />
       <workItem from="1515479873084" duration="17768000" />
       <workItem from="1516091139782" duration="15198000" />
-      <workItem from="1516173158638" duration="2789000" />
+      <workItem from="1516173158638" duration="4766000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="118522000" />
+    <option name="totallyTimeSpent" value="120499000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -787,12 +786,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/redux-starting/redux-start.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+        <state relative-caret-position="408">
+          <caret line="102" column="38" lean-forward="false" selection-start-line="102" selection-start-column="38" selection-end-line="102" selection-end-column="38" />
           <folding>
-            <element signature="e#190#317#0" expanded="false" />
-            <element signature="e#367#499#0" expanded="false" />
-            <element signature="e#545#830#0" expanded="false" />
+            <element signature="e#238#365#0" expanded="false" />
+            <element signature="e#407#470#0" expanded="false" />
+            <element signature="e#593#725#0" expanded="false" />
+            <element signature="e#773#842#0" expanded="false" />
           </folding>
         </state>
       </provider>

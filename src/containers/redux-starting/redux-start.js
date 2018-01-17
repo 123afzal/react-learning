@@ -3,8 +3,8 @@
 import * as redux from 'redux';
 console.log("Starting Redux Applicatoion");
 
-let todoId = 1;
-
+//Search Text Reducer and Action generator
+//-------------------
 let searchTextReducer = (state = 'No search text', action) => {
   switch (action.type) {
     case "CHANGE_SEARCHTEXT" :
@@ -14,6 +14,15 @@ let searchTextReducer = (state = 'No search text', action) => {
   }
 };
 
+let changeSearchText = (searchText) => {
+  return{
+    type: "CHANGE_SEARCHTEXT",
+    searchText
+  }
+};
+
+//show Completed Text Reducer and Action generator
+//-------------------
 let showCompleted = (state = false, action) => {
   switch (action.type) {
     case "TOGGLE_SHOWCOMPLETED":
@@ -23,6 +32,16 @@ let showCompleted = (state = false, action) => {
   }
 };
 
+let changeShowCompleted = (showCompleted) => {
+  return{
+    type: "TOGGLE_SHOWCOMPLETED",
+    showCompleted
+  }
+};
+
+var todoId = 1;
+//Todos Reducer and Action generator
+//-------------------
 let todosReducer = (state = [], action) => {
   switch (action.type) {
     case "ADD_TODO":
@@ -37,6 +56,20 @@ let todosReducer = (state = [], action) => {
       return state.filter( (todo) => todo.id !== action.id);
     default:
       return state;
+  }
+};
+
+let addTodo = (todo) => {
+  return{
+    type: "ADD_TODO",
+    todo
+  }
+};
+
+let removeTodo = (id) => {
+  return{
+    type: "REMOVE_TODO",
+    id
   }
 };
 
@@ -61,40 +94,16 @@ store.subscribe(() => {
 let currentState = store.getState();
 console.log("currentState", currentState);
 
-store.dispatch({
-  type: "CHANGE_SEARCHTEXT",
-  searchText: "jo bhi main bouloun bhaii"
-});
+store.dispatch(changeSearchText("Walking"));
+store.dispatch(changeSearchText("Eat!"));
 
-store.dispatch({
-  type: "CHANGE_SEARCHTEXT",
-  searchText: "theek ho gaya"
-});
+store.dispatch(changeShowCompleted(true));
 
-store.dispatch({
-  type: "TOGGLE_SHOWCOMPLETED",
-  showCompleted: true
-});
-
-store.dispatch({
-  type: "ADD_TODO",
-  todo: "Eat!"
-});
-
-store.dispatch({
-  type: "ADD_TODO",
-  todo: "Go to Walk"
-});
-
-store.dispatch({
-  type: "ADD_TODO",
-  todo: "Go to Dinner"
-});
+store.dispatch(addTodo("Eat!"));
+store.dispatch(addTodo("Go to Walk"));
+store.dispatch(addTodo("Go to Dinner"));
 //
 setTimeout(()=> {
-  store.dispatch({
-    type: "REMOVE_TODO",
-    id:1
-  });
+  store.dispatch(removeTodo(1));
 },1000);
 // console.log("New state after dispatch", store.getState());
