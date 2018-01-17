@@ -4,7 +4,8 @@
  */
 import React, {Component} from 'react';
 import moment from 'moment';
-
+import {connect} from 'react-redux'
+var actions = require('../actions/index')
 
 import './todo.css'
 class Todo extends Component {
@@ -32,7 +33,8 @@ class Todo extends Component {
         let todoClassName = completed ? "todo todo-completed" : "todo"
         return (
             <div className={todoClassName} onClick={
-                ()=>{this.props.onToggle(id)}
+                // ()=>{this.props.onToggle(id)}
+              dispatch(actions.toggleTodo(id))
             }>
                 <div>
                     <input type="checkbox" checked={completed}/>
@@ -46,4 +48,4 @@ class Todo extends Component {
     }
 }
 
-export default Todo;
+export default connect()(Todo);

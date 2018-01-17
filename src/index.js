@@ -10,6 +10,7 @@ import ReduxStart from './containers/redux-starting/redux-start'
 import registerServiceWorker from './registerServiceWorker';
 import Routes from './route'
 
+import {Provider} from 'react-redux'
 var store = require('../src/containers/todo-app/store/configStore').configure();
 var action = require('../src/containers/todo-app/actions/index')
 
@@ -24,5 +25,8 @@ store.dispatch(action.changeShowCompleted());
 
 
 ReactDOM.render(
-  <TodoApp/>,document.getElementById('root'));
+  <Provider store={store}>
+    <TodoApp/>
+  </Provider>,
+  document.getElementById('root'));
 registerServiceWorker();
