@@ -58,7 +58,7 @@ class TodoApp extends Component {
         //filtered by handleText
         filteredTodos = filteredTodos.filter((todo) => {
             let text = todo.todo.toLowerCase();
-            console.log(text)
+            console.log(text);
             return handelText.length === 0 || text.indexOf(handelText) > -1;
         });
 

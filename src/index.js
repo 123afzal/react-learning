@@ -10,8 +10,8 @@ import ReduxStart from './containers/redux-starting/redux-start'
 import registerServiceWorker from './registerServiceWorker';
 import Routes from './route'
 
-ReactDOM.render(
-  <TodoApp/>,document.getElementById('root'));
-registerServiceWorker();
+// ReactDOM.render(
+//   <TodoApp/>,document.getElementById('root'));
+// registerServiceWorker();
 
 var redux = require('./containers/redux-starting/redux-start');
