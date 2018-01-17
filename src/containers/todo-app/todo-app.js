@@ -125,7 +125,7 @@ class TodoApp extends Component {
                         </div>
                         <div className="container">
                             <TodoSearch onSearch={this._handleOnSearch}/>
-                            <TodoList/>
+                            <TodoList todos={filterTodos} onToggle={this._handleToggle}/>
                             <AddTodo onAddTodo={this._handleAddTodo}/>
                         </div>
                     </div>

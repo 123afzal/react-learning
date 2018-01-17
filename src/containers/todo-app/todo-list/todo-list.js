@@ -17,7 +17,7 @@ class TodoList extends Component {
         let {todos} = this.props;
         return (
             todos.map((todo) => {
-                return <Todo {...todo} key={todo.id}/>
+                return <Todo {...todo} key={todo.id} onToggle={this.props.onToggle}/>
             })
         )
     }
@@ -31,10 +31,4 @@ class TodoList extends Component {
     }
 }
 
-export default connect(
-  (state) => {
-      return {
-          todos: state.todos
-      }
-  }
-)(TodoList);
+export default TodoList;
