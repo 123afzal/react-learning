@@ -4,9 +4,11 @@
  */
 import React, {Component} from 'react';
 import moment from 'moment';
-
-
 import './todo.css'
+import {connect} from 'react-redux'
+
+var actions = require('../actions/index')
+
 class Todo extends Component {
     constructor(props) {
         super(props);
@@ -28,11 +30,11 @@ class Todo extends Component {
     };
 
     render() {
-        let {id, todo, completed, createdAt, completedAt} = this.props;
-        let todoClassName = completed ? "todo todo-completed" : "todo"
+        let {id, todo, completed, createdAt, completedAt, dispatch} = this.props;
+        let todoClassName = completed ? "todo todo-completed" : "todo";
         return (
             <div className={todoClassName} onClick={
-                ()=>{this.props.onToggle(id)}
+                ()=>{dispatch(actions.toggleTodo(id))}
             }>
                 <div>
                     <input type="checkbox" checked={completed}/>
@@ -46,4 +48,4 @@ class Todo extends Component {
     }
 }
 
-export default Todo;
+export default connect()(Todo);

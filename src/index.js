@@ -19,7 +19,9 @@ store.subscribe(()=> {
 });
 
 
-store.dispatch(action.addTodo("Time pt play the game"));
+store.dispatch(action.addTodo("Time to play the game"));
+store.dispatch(action.addTodo("Time to play the war"));
+
 store.dispatch(action.changeSearchText("game"));
 store.dispatch(action.changeShowCompleted());
 
