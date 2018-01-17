@@ -10,8 +10,19 @@ import ReduxStart from './containers/redux-starting/redux-start'
 import registerServiceWorker from './registerServiceWorker';
 import Routes from './route'
 
-// ReactDOM.render(
-//   <TodoApp/>,document.getElementById('root'));
-// registerServiceWorker();
+var store = require('../src/containers/todo-app/store/configStore').configure();
+var action = require('../src/containers/todo-app/actions/index')
 
-var redux = require('./containers/redux-starting/redux-start');
+store.subscribe(()=> {
+  console.log("New state", store.getState());
+});
+
+
+store.dispatch(action.addTodo("Time pt play the game"));
+store.dispatch(action.changeSearchText("game"));
+store.dispatch(action.changeShowCompleted());
+
+
+ReactDOM.render(
+  <TodoApp/>,document.getElementById('root'));
+registerServiceWorker();

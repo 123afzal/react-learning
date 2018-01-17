@@ -7,10 +7,9 @@ export let changeSearchText = (searchText) => {
   }
 };
 
-export let changeShowCompleted = (showCompleted) => {
+export let changeShowCompleted = () => {
   return{
     type: "TOGGLE_SHOWCOMPLETED",
-    showCompleted
   }
 };
 
@@ -21,9 +20,9 @@ export let addTodo = (todo) => {
   }
 };
 
-export let removeTodo = (id) => {
+export let toggleTodo = (id) => {
   return{
-    type: "REMOVE_TODO",
+    type: "TOGGLE_TODO",
     id
   }
 };

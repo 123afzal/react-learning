@@ -1,6 +1,3 @@
-/**
- * Created by mustehssun on 1/17/2018.
- */
 import uuid from 'node-uuid';
 import moment from 'moment';
 
@@ -47,23 +44,6 @@ export let todosReducer = (state = [], action) => {
           }
         }
       });
-    default:
-      return state;
-  }
-};
-
-export let mapReducer = (state = {isFecthing: false, url: undefined}, action) => {
-  switch (action.type) {
-    case "START_LOCATION_FETCH":
-      return {
-        isFecthing: true,
-        url: undefined
-      };
-    case "STOP_LOCATION_FETCH":
-      return {
-        isFecthing: false,
-        url: action.url
-      };
     default:
       return state;
   }
