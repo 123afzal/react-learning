@@ -1,7 +1,7 @@
 import uuid from 'node-uuid';
 import moment from 'moment';
 
-export let searchTextReducer = (state = 'No search text', action) => {
+export let searchTextReducer = (state = '', action) => {
   switch (action.type) {
     case "CHANGE_SEARCHTEXT" :
       return action.searchText;
@@ -41,8 +41,9 @@ export let todosReducer = (state = [], action) => {
             completed: newCompleted,
             completedAt: newCompleted ? moment().unix() : undefined
           }
+        } else{
+          return todo;
         }
-        return {...todo}
       });
     default:
       return state;

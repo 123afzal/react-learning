@@ -3,8 +3,11 @@
  * website: http://www.codenvoi.com
  */
 import React, {Component} from 'react';
-
+import {connect} from 'react-redux'
 import './add-todo.css'
+
+var actions = require('../actions/index')
+
 class AddTodo extends Component {
     constructor(props) {
         super(props);
@@ -15,11 +18,12 @@ class AddTodo extends Component {
     _onSubmit = (e) => {
         e.preventDefault();
 
+        let {dispatch} =this.props;
         let todoText = this.refs.todo.value;
 
         if(todoText.length > 0){
             this.refs.todo.value = "";
-            this.props.onAddTodo(todoText);
+            dispatch(actions.addTodo(todoText));
         }
         else{
             this.refs.todo.focus();
@@ -38,4 +42,4 @@ class AddTodo extends Component {
     }
 }
 
-export default AddTodo;
+export default connect()(AddTodo);
