@@ -23,10 +23,11 @@ store.dispatch(action.addTodo("Time to play the game"));
 store.dispatch(action.addTodo("Time to play the war"));
 
 
-
 ReactDOM.render(
   <Provider store={store}>
     <TodoApp/>
   </Provider>,
   document.getElementById('root'));
 registerServiceWorker();
+
+require('../src/playground/firebas');
