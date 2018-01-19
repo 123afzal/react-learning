@@ -28,31 +28,29 @@ firebaseRef.set({
   console.log("failure")
 });
 
-firebaseRef.update({
-  '/app/appName': "Todo App",
-  'user/age': 21
-}).then(()=>{
-  console.log("Success in first call of update");
-},(e)=>{
-  console.log("error occurs in first call of update")
-  });
-
-firebaseRef.child('app').update({
-  appName: "Puran wala Todo"
-}).then(()=>{
-  console.log("Success in second call of update")
-}, ()=>{
-  console.log("error occurs in second call of update")
-});
-
-firebaseRef.child('user').update({
-  age: 23
-}).then(()=>{
-  console.log("Success in third call of update");
-}, ()=>{
-  console.log("error occurs in third call of update");
-});
-
-// firebaseRef.child('user').set({
-//   name: "Muneeb"
+// dealing with arrays
+// var todosRef = firebaseRef.child('todos');
+//
+// todosRef.on("child_added", (snapshot)=>{
+//   console.log("child_added in todos", snapshot.key, snapshot.val())
 // });
+//
+// todosRef.on("child_removed", (snapshot)=>{
+//   console.log("child_removed in todos", snapshot.key, snapshot.val())
+// });
+//
+// todosRef.on("child_changed", (snapshot)=>{
+//   console.log("child_changed in todos", snapshot.key, snapshot.val())
+// });
+//
+// var newTodo = todosRef.push({
+//   text: "go to walk"
+// });
+//
+// newTodo = todosRef.push({
+//   text: "go to dinner"
+// });
+
+
+
+// console.log("New todo Id", newTodo);
