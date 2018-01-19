@@ -42,9 +42,23 @@ export let addTodo = (todo) => {
   }
 };
 
-export let toggleTodo = (id) => {
+export let toggleTodoWithFirebase = (id, completed) =>{
+  return (dispatch, getState) => {
+    let todoRef = firebaseRef.child(`todos/${id}`);
+    let updates  = {
+      completed,
+      completedAt: completed ? moment().unix() : null
+    };
+    return todoRef.update(updates).then(()=>{
+      dispatch(updateToggleTodo(updates, id));
+    })
+  }
+};
+
+export let updateToggleTodo = (updates, id) => {
   return{
-    type: "TOGGLE_TODO",
+    type: "UPDATETOGGLE_TODO",
+    updates,
     id
   }
 };

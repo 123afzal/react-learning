@@ -34,7 +34,7 @@ class Todo extends Component {
         let todoClassName = completed ? "todo todo-completed" : "todo";
         return (
             <div className={todoClassName} onClick={
-                ()=>{dispatch(actions.toggleTodo(id))}
+                ()=>{dispatch(actions.toggleTodoWithFirebase(id, !completed))}
             }>
                 <div>
                     <input type="checkbox" checked={completed}/>
