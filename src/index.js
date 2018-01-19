@@ -19,8 +19,8 @@ store.subscribe(()=> {
 });
 
 
-store.dispatch(action.addTodo("Time to play the game"));
-store.dispatch(action.addTodo("Time to play the war"));
+store.dispatch(action.addTodoWithFirebase("Time to play the game"));
+store.dispatch(action.addTodoWithFirebase("Time to play the war"));
 
 
 ReactDOM.render(
@@ -30,4 +30,4 @@ ReactDOM.render(
   document.getElementById('root'));
 registerServiceWorker();
 
-require('../src/playground/firebas');
+// require('../src/playground/firebas');

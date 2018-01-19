@@ -23,7 +23,7 @@ class AddTodo extends Component {
 
         if(todoText.length > 0){
             this.refs.todo.value = "";
-            dispatch(actions.addTodo(todoText));
+            dispatch(actions.addTodoWithFirebase(todoText));
         }
         else{
             this.refs.todo.focus();

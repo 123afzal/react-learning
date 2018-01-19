@@ -49,7 +49,9 @@ firebaseRef.set({
 //
 // newTodo = todosRef.push({
 //   text: "go to dinner"
-// });
+// }).then(()=>{
+//   console.log('go to dinner')
+// })
 
 
 
