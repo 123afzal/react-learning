@@ -4,3 +4,7 @@
     background-color: #fafafa;
     border: 1px solid #eeeeee;
     border-radius: 5px; }
+  .todo-app .page-actions {
+    position: relative;
+    float: right;
+    padding: 2rem; }

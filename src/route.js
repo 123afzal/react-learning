@@ -12,6 +12,8 @@ import {Route, Router, IndexRoute, browserHistory} from 'react-router';
 import Main from './containers/timer-app/main'
 import Timer from './containers/timer-app/timer/timer'
 import CountDown from './containers/timer-app/count-down/count-down'
+import TodoApp from './containers/todo-app/todo-app'
+import Login from './containers/todo-app/login/login'
 
 const Routes = () => {
     return (
@@ -24,12 +26,20 @@ const Routes = () => {
         // </Router>
 
         //routes for timer application
-        <Router history={browserHistory}>
-            <Route path="/" component={Main}>
-                <IndexRoute component={Timer}/>
-                <Route path='/countdown' component={CountDown}/>
-            </Route>
-        </Router>
+       // <Router history={browserHistory}>
+         //   <Route path="/" component={Main}>
+           //     <IndexRoute component={Timer}/>
+             //   <Route path='/countdown' component={CountDown}/>
+            //</Route>
+   //     </Router>
+
+      /* routes for todo app */
+      <Router history={browserHistory}>
+        <Route path="/">
+          <Route path="todos" component={TodoApp}/>
+          <IndexRoute component={Login}/>
+        </Route>
+      </Router>
     )
 };
 

@@ -8,6 +8,8 @@ import AddTodo from './add-todo/add-todo'
 import TodoSearch from './todo-search/todo-search'
 import uuid from 'node-uuid';
 import moment from 'moment';
+import * as action from '../todo-app/actions/index'
+import * as Redux from 'react-redux'
 
 
 import './todo-app.css';
@@ -112,12 +114,21 @@ class TodoApp extends Component {
     }
 
     render() {
+        let {dispatch} = this.props;
         let {todos, handelText, showCompleted} = this.state;
         let filterTodos = this._filteredTodos(showCompleted, handelText, todos);
         console.log("todos", todos);
 
         return (
             <div className="todo-app">
+                <div className="page-actions">
+                    <a href="#" onClick={()=>{
+                        dispatch(action.logOutwithFirebase())
+                    }}>
+                        Logout
+                    </a>
+                </div>
+
                 <div className="grid-x">
                     <div className="medium-6 large-4 cell" style={{margin:"0 auto"}}>
                         <div style={{textAlign:"center"}}>
@@ -135,4 +146,4 @@ class TodoApp extends Component {
     }
 }
 
-export default TodoApp;
+export default Redux.connect()(TodoApp);

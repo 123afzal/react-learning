@@ -26,7 +26,7 @@ store.dispatch(action.startAddTodo());
 
 ReactDOM.render(
   <Provider store={store}>
-    <TodoApp/>
+    <Routes/>
   </Provider>,
   document.getElementById('root'));
 registerServiceWorker();

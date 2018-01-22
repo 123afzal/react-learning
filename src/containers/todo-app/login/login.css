@@ -1,0 +1,7 @@
+.login .callout-auth {
+  border: 1px solid #fafafa;
+  background-color: #fafafa;
+  padding: 2rem;
+  text-align: center; }
+  .login .callout-auth h3, .login .callout-auth p {
+    margin-bottom: 2rem !important; }

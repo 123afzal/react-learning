@@ -1,4 +1,4 @@
-import firebase, {firebaseRef}  from '../firebase'
+import firebase, {firebaseRef, gitHubProvider}  from '../firebase'
 import moment from 'moment';
 
 
@@ -86,3 +86,22 @@ export let addTodos = (todos) =>{
     todos
   }
 };
+
+export let loginWithFirebase = ()=>{
+  return (dispatch, getState) => {
+    return firebase.auth().signInWithPopup(gitHubProvider).then((res)=>{
+      console.log("Loginn success", res)
+    },
+      (e)=>{
+      console.log("can't logged in", e)
+      })
+  }
+};
+
+export let logOutwithFirebase = ()=>{
+  return (dispatch, getState) => {
+    return firebase.auth().signOut().then(()=>{
+      console.log("Successfully Signed Out");
+    })
+  }
+}
