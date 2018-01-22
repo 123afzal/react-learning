@@ -3,6 +3,7 @@
  * website: http://www.codenvoi.com
  */
 import React from 'react';
+import firebase from './containers/todo-app/firebase/index'
 
 import {Route, Router, IndexRoute, browserHistory} from 'react-router';
 
@@ -14,6 +15,29 @@ import Timer from './containers/timer-app/timer/timer'
 import CountDown from './containers/timer-app/count-down/count-down'
 import TodoApp from './containers/todo-app/todo-app'
 import Login from './containers/todo-app/login/login'
+
+firebase.auth().onAuthStateChanged((user)=>{
+  if(user){
+    browserHistory.push('/todos')
+  } else {
+    browserHistory.push('/')
+  }
+});
+
+var loginRequired = (nextState, replace, next) => {
+  if(!firebase.auth().currentUser) {
+    console.log("abc")
+    replace('/')
+  }
+  next();
+};
+
+var redirectIfLoggedIn = (nextState, replace, next) => {
+  if(firebase.auth().currentUser) {
+    replace('/todos')
+  }
+  next();
+};
 
 const Routes = () => {
     return (
@@ -36,8 +60,8 @@ const Routes = () => {
       /* routes for todo app */
       <Router history={browserHistory}>
         <Route path="/">
-          <Route path="todos" component={TodoApp}/>
-          <IndexRoute component={Login}/>
+          <Route path="todos" component={TodoApp} onEnter={loginRequired}/>
+          <IndexRoute component={Login} onEnter={redirectIfLoggedIn}/>
         </Route>
       </Router>
     )
