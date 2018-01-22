@@ -29,29 +29,46 @@ firebaseRef.set({
 });
 
 // dealing with arrays
-// var todosRef = firebaseRef.child('todos');
-//
-// todosRef.on("child_added", (snapshot)=>{
-//   console.log("child_added in todos", snapshot.key, snapshot.val())
-// });
-//
-// todosRef.on("child_removed", (snapshot)=>{
-//   console.log("child_removed in todos", snapshot.key, snapshot.val())
-// });
-//
-// todosRef.on("child_changed", (snapshot)=>{
-//   console.log("child_changed in todos", snapshot.key, snapshot.val())
-// });
-//
-// var newTodo = todosRef.push({
-//   text: "go to walk"
-// });
-//
-// newTodo = todosRef.push({
-//   text: "go to dinner"
-// }).then(()=>{
-//   console.log('go to dinner')
-// })
+var todosRef = firebaseRef.child('todos');
+
+todosRef.on("child_added", (snapshot)=>{
+  console.log("child_added in todos", snapshot.key, snapshot.val())
+});
+
+todosRef.on("child_removed", (snapshot)=>{
+  console.log("child_removed in todos", snapshot.key, snapshot.val())
+});
+
+todosRef.on("child_changed", (snapshot)=>{
+  console.log("child_changed in todos", snapshot.key, snapshot.val())
+});
+
+var newTodo = todosRef.push({
+  text: "go to walk"
+});
+
+newTodo = todosRef.push({
+  text: "go to dinner"
+}).then(()=>{
+  console.log('go to dinner')
+});
+
+
+// cheking Object.keys() method
+todosRef.once('value').then((snapshot)=>{
+  let todos = snapshot.val() || {}
+  let my_array = []
+
+  Object.keys(todos).map((todoId)=>{
+    console.log("todo",todoId);
+    my_array.push({
+      id: todoId,
+      ...todos[todoId]
+    });
+  });
+
+  console.log(my_array)
+});
 
 
 

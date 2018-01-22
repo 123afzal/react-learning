@@ -12,15 +12,16 @@ import Routes from './route'
 
 import {Provider} from 'react-redux'
 var store = require('../src/containers/todo-app/store/configStore').configure();
-var action = require('../src/containers/todo-app/actions/index')
+var action = require('../src/containers/todo-app/actions/index');
 
 store.subscribe(()=> {
   console.log("New state", store.getState());
 });
 
 
-store.dispatch(action.addTodoWithFirebase("Time to play the game"));
-store.dispatch(action.addTodoWithFirebase("Time to play the war"));
+store.dispatch(action.startAddTodo());
+// store.dispatch(action.addTodoWithFirebase("Time to play the game"));
+// store.dispatch(action.addTodoWithFirebase("Time to play the war"));
 
 
 ReactDOM.render(

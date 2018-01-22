@@ -45,6 +45,14 @@ class TodoList extends Component {
 
     _renderTodos(){
         let {todos, searchText, showCompleted} = this.props;
+        let filterTodos = this._filteredTodos(showCompleted, searchText, todos);
+        console.log("filterTodos", filterTodos);
+        if(filterTodos.length === 0) {
+          return(
+            <p style={{padding:"10px 10px 0 10px"}}>No todos to show on a screen</p>
+          )
+        }
+
         return (
             this._filteredTodos(showCompleted, searchText, todos).map((todo) => {
                 return <Todo {...todo} key={todo.id}/>

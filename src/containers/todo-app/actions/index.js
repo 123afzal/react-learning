@@ -16,7 +16,6 @@ export let changeShowCompleted = () => {
 };
 
 export let addTodoWithFirebase = (text) => {
-  console.log('my todo', text)
   return (dispatch, getState)=>{
     let todo = {
       todo: text,
@@ -24,7 +23,7 @@ export let addTodoWithFirebase = (text) => {
       createdAt: moment().unix(),
       completedAt: null
     };
-    let newtodo = firebaseRef.child('todos').push(todo)
+    let newtodo = firebaseRef.child('todos').push(todo);
 
     return newtodo.then(()=>{
       dispatch(addTodo({
@@ -57,8 +56,33 @@ export let toggleTodoWithFirebase = (id, completed) =>{
 
 export let updateToggleTodo = (updates, id) => {
   return{
-    type: "UPDATETOGGLE_TODO",
+    type: 'UPDATETOGGLE_TODO',
     updates,
     id
+  }
+};
+
+export let startAddTodo = () => {
+  return (dispatch, getState) => {
+    var todosRef = firebaseRef.child('todos');
+    todosRef.once('value').then((snapshot)=>{
+      var todos = snapshot.val() || {};
+      var newTodos = [];
+
+      Object.keys(todos).map((todoId)=>{
+        newTodos.push({
+          id: todoId,
+          ...todos[todoId]
+        });
+      });
+      dispatch(addTodos(newTodos))
+    })
+  }
+};
+
+export let addTodos = (todos) =>{
+  return {
+    type: "ADD_TODOS",
+    todos
   }
 };
