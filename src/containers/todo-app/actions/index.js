@@ -90,6 +90,23 @@ export let addTodos = (todos) =>{
   }
 };
 
+export let deleteTodo = (id) => {
+  console.log("actions", id);
+  return {
+    type: "DELETE_TODO",
+    id
+  }
+};
+
+export let editTodo = (id, newTodo) => {
+  console.log("I am in action", id, newTodo);
+  return{
+    type:"EDIT_TODO",
+    id,
+    newTodo
+  }
+};
+
 export let loginWithFirebase = ()=>{
   return (dispatch, getState) => {
     return firebase.auth().signInWithPopup(gitHubProvider).then((res)=>{
@@ -110,7 +127,6 @@ export let logOutwithFirebase = ()=>{
 }
 
 //User Authentication Actions
-
 export let login = (id) => {
   return{
     type: "LOGIN",

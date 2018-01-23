@@ -1,4 +1,40 @@
 .todo{
+
+  display: flex;
+  flex-direction: column;
+  .controls-todo{
+    text-align: center;
+    margin-top: 10px;
+    .del-btn{
+      background-color: #c0392b;
+      margin-bottom: 0;
+      border-radius: 10px;
+    }
+    .edit-btn{
+      background-color: #3498db;
+      margin-bottom: 0;
+      border-radius: 10px;
+    }
+  }
+  .save-btn {
+    background-color: #2ecc71;
+    margin-bottom: 0;
+    border-radius: 10px;
+    margin-top: 5px;
+    float: right;
+  }
+
+  .editable{
+    border-radius: 5px;
+    background-color: #eaeaea;
+  }
+  .info-todo{
+    display: flex;
+
+    > :first-child{
+      margin-right: 10px;
+    }
+  }
   //border: 1px solid #eeeeee;
   //background-color: lightgrey;
   padding:10px;
@@ -7,13 +43,12 @@
   transition: background 0.3s;
 
 
+
   p, input{
     margin: 0 !important;
   }
 
-  > :first-child{
-    margin-right: 10px;
-  }
+
 
   &:hover{
     background-color: #f0f0f0;

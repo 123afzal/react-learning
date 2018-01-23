@@ -41,13 +41,31 @@ export let todosReducer = (state = [], action) => {
       });
     case "LOGOUT":
       return [];
+    case "DELETE_TODO":
+      console.log("action id in reducer", action.id);
+      return state.filter( (todo)=> {
+        if(todo.id !== action.id) {
+          console.log("Todo not matched", todo);
+          return todo
+        }
+      });
+    case "EDIT_TODO":
+      return state.map((todo)=> {
+        if(todo.id === action.id){
+          return{
+            ...todo,
+            todo: action.newTodo
+          }
+        } else{
+          return todo
+        }
+      });
     default:
       return state;
   }
 };
 
 //User Authentication Reducer
-
 export let authReducer = (state = {}, action) => {
   switch (action.type) {
     case "LOGIN":

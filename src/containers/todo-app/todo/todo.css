@@ -1,12 +1,36 @@
 .todo {
+  display: flex;
+  flex-direction: column;
   padding: 10px;
   display: flex;
   cursor: pointer;
   transition: background 0.3s; }
+  .todo .controls-todo {
+    text-align: center;
+    margin-top: 10px; }
+    .todo .controls-todo .del-btn {
+      background-color: #c0392b;
+      margin-bottom: 0;
+      border-radius: 10px; }
+    .todo .controls-todo .edit-btn {
+      background-color: #3498db;
+      margin-bottom: 0;
+      border-radius: 10px; }
+  .todo .save-btn {
+    background-color: #2ecc71;
+    margin-bottom: 0;
+    border-radius: 10px;
+    margin-top: 5px;
+    float: right; }
+  .todo .editable {
+    border-radius: 5px;
+    background-color: #eaeaea; }
+  .todo .info-todo {
+    display: flex; }
+    .todo .info-todo > :first-child {
+      margin-right: 10px; }
   .todo p, .todo input {
     margin: 0 !important; }
-  .todo > :first-child {
-    margin-right: 10px; }
   .todo:hover {
     background-color: #f0f0f0; }
 
