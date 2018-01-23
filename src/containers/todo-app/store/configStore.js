@@ -1,5 +1,5 @@
 import * as redux from 'redux';
-import {searchTextReducer, showCompleted, todosReducer} from '../reducers/index';
+import {searchTextReducer, showCompleted, todosReducer, authReducer} from '../reducers/index';
 var thunk = require('redux-thunk').default;
 
 export var configure = () => {
@@ -7,6 +7,7 @@ export var configure = () => {
     searchText: searchTextReducer,
     showCompleted: showCompleted,
     todos: todosReducer,
+    auth: authReducer
   });
 
   var store = redux.createStore(reducer, redux.compose(

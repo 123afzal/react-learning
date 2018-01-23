@@ -16,17 +16,11 @@ import CountDown from './containers/timer-app/count-down/count-down'
 import TodoApp from './containers/todo-app/todo-app'
 import Login from './containers/todo-app/login/login'
 
-firebase.auth().onAuthStateChanged((user)=>{
-  if(user){
-    browserHistory.push('/todos')
-  } else {
-    browserHistory.push('/')
-  }
-});
+
 
 var loginRequired = (nextState, replace, next) => {
   if(!firebase.auth().currentUser) {
-    console.log("abc")
+    console.log("abc");
     replace('/')
   }
   next();
