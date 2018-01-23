@@ -32,7 +32,7 @@ class Todo extends Component {
           </button>
           <button className="button del-btn" onClick={(e)=>{
             e.preventDefault();
-            dispatch(actions.deleteTodo(id))
+            dispatch(actions.startDeleteTodoWithFireBase(id))
           }}>
             Delete
           </button>

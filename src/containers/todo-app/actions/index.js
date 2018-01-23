@@ -98,6 +98,20 @@ export let deleteTodo = (id) => {
   }
 };
 
+export let startDeleteTodoWithFireBase = (id) => {
+  return (dispatch, getState) => {
+    let uid = getState().auth.uid;
+    let todosRef = firebaseRef.child(`users/${uid}/todos`);
+    return todosRef.child(id).remove()
+      .then(()=>{
+      console.log("success");
+      dispatch(deleteTodo(id))
+      },(e)=>{
+      console.log("error occured in deleting", e)
+      });
+  }
+};
+
 export let editTodo = (id, newTodo) => {
   console.log("I am in action", id, newTodo);
   return{
