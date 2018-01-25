@@ -90,6 +90,20 @@ export let addTodos = (todos) =>{
   }
 };
 
+export let startDeleteTodoWithFireBase = (id) => {
+  return (dispatch, getState) => {
+    let uid = getState().auth.uid;
+    let todosRef = firebaseRef.child(`users/${uid}/todos`);
+    return todosRef.child(id).remove()
+      .then(()=>{
+        console.log("success");
+        dispatch(deleteTodo(id))
+      },(e)=>{
+        console.log("error occured in deleting", e)
+      });
+  }
+};
+
 export let deleteTodo = (id) => {
   console.log("actions", id);
   return {
@@ -98,17 +112,19 @@ export let deleteTodo = (id) => {
   }
 };
 
-export let startDeleteTodoWithFireBase = (id) => {
+export let startEditTodoWithFireBase = (id, newTodo) => {
   return (dispatch, getState) => {
     let uid = getState().auth.uid;
-    let todosRef = firebaseRef.child(`users/${uid}/todos`);
-    return todosRef.child(id).remove()
-      .then(()=>{
-      console.log("success");
-      dispatch(deleteTodo(id))
-      },(e)=>{
-      console.log("error occured in deleting", e)
-      });
+    let todosRef = firebaseRef.child(`users/${uid}/todos/${id}`);
+    let updatedTodo = {
+      todo: newTodo
+    };
+    return todosRef.update(updatedTodo).then(()=>{
+      console.log("successfully updated");
+      dispatch(editTodo(id, newTodo));
+    },(err)=>{
+      console.log("Error while deleting", err);
+    })
   }
 };
 
@@ -121,6 +137,7 @@ export let editTodo = (id, newTodo) => {
   }
 };
 
+//Login with fire-base then used this user uid to login
 export let loginWithFirebase = ()=>{
   return (dispatch, getState) => {
     return firebase.auth().signInWithPopup(gitHubProvider).then((res)=>{
@@ -138,7 +155,7 @@ export let logOutwithFirebase = ()=>{
       console.log("Successfully Signed Out");
     })
   }
-}
+};
 
 //User Authentication Actions
 export let login = (id) => {

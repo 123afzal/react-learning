@@ -60,7 +60,7 @@ class Todo extends Component {
           <input className="editable" type="text" ref="todo" defaultValue={todo}/>
           <button className="button save-btn" onClick={()=>{
             let newTodo = this.refs.todo.value;
-            dispatch(actions.editTodo(id, newTodo));
+            dispatch(actions.startEditTodoWithFireBase(id, newTodo));
             this.setState({isEdit: !this.state.isEdit})
           }}>
             Save
